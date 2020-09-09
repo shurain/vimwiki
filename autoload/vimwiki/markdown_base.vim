@@ -126,7 +126,7 @@ function! s:normalize_link_syntax_v() abort
     if vimwiki#base#is_diary_file(expand('%:p'))
       let link = vimwiki#base#normalize_link_in_diary(visual_selection)
     else
-      let link = s:safesubstitute(vimwiki#vars#get_syntaxlocal('Weblink1Template'),
+      let link = s:safesubstitute(vimwiki#vars#get_global('WikiLinkTemplate1'),
             \ '__LinkUrl__', visual_selection, '')
     endif
 
