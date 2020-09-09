@@ -65,7 +65,7 @@ function! s:normalize_link_syntax_n() abort
     let sub = vimwiki#base#normalize_link_helper(lnk,
           \ vimwiki#vars#get_syntaxlocal('rxWikiLinkMatchUrl'),
           \ vimwiki#vars#get_syntaxlocal('rxWikiLinkMatchDescr'),
-          \ vimwiki#vars#get_syntaxlocal('WikiLink1Template2'))
+          \ vimwiki#vars#get_global('WikiLinkTemplate2'))
     call vimwiki#base#replacestr_at_cursor(vimwiki#vars#get_syntaxlocal('rxWikiLink0'), sub)
     return
   endif
@@ -87,7 +87,7 @@ function! s:normalize_link_syntax_n() abort
     let sub = vimwiki#base#normalize_link_helper(lnk,
           \ vimwiki#vars#get_syntaxlocal('rxWeblinkMatchUrl'),
           \ vimwiki#vars#get_syntaxlocal('rxWeblinkMatchDescr'),
-          \ vimwiki#vars#get_syntaxlocal('Weblink1Template'))
+          \ vimwiki#vars#get_global('WikiLinkTemplate1'))
     call vimwiki#base#replacestr_at_cursor(vimwiki#vars#get_syntaxlocal('rxWeblink'), sub)
     return
   endif
@@ -102,7 +102,7 @@ function! s:normalize_link_syntax_n() abort
     else
       let sub = vimwiki#base#normalize_link_helper(lnk,
             \ vimwiki#vars#get_global('rxWord'), '',
-            \ vimwiki#vars#get_syntaxlocal('Weblink1Template'))
+            \ vimwiki#vars#get_global('WikiLinkTemplate1'))
     endif
     call vimwiki#base#replacestr_at_cursor('\V'.lnk, sub)
     return
